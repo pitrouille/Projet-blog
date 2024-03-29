@@ -1,19 +1,25 @@
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import { Link } from "react-router-dom";
 
+
 function HomePage() {
+  const [posts, setPosts] = useState([])
+  console.log(posts)
   useEffect(() => {
-    // @TODO - fetching post blogs from the server...
-    //
-    // @HINT - once we got the data, it's maybe time to provoke a rerender...
-  });
+    fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(response => response.json())
+    .then(data => setPosts(data))
+  
+  },[]);
   // pay attention on how to use carefully useEffect, don't hesitate to log !
 
   return (
     <>
       <h1>Blog posts</h1>
-      <p>...</p>
-      <Link to="/test">Click</Link>
+      <ul>
+        {posts.map((post) => <Link to= {`/${post.id}`} key={post.id}><li >{post.title} description: {post.body}</li></Link>)}
+      </ul>
+      Click
     </>
   );
 }

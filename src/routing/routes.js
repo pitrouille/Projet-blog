@@ -5,20 +5,19 @@ import BlogPage from "./BlogPage";
 import ErrorPage from "./ErrorPage";
 
 export const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Layout />,
-        errorElement: <ErrorPage/>,
-        children:[
-            {
-                path: "",
-                element: <HomePage/>,
-            },
-            {
-                path: ":id",
-                element: <BlogPage/>
-
-            }
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "",
+        element: <HomePage />,
+      },
+      {
+        path: ":id",
+        element: <BlogPage />,
+      },
+    ],
+  },
+]);

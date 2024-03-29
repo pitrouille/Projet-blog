@@ -1,9 +1,9 @@
 import BlogPost from "../components/BlogPost";
 
-export default function BlogPage(){
-    return(
-        <>
-            <BlogPost/>
-        </>
-    )
+export default function BlogPage() {
+  return (
+    <>
+      <BlogPost />
+    </>
+  );
 }

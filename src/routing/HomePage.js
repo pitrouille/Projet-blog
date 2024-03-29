@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 function HomePage() {
   useEffect(() => {
@@ -12,6 +13,7 @@ function HomePage() {
     <>
       <h1>Blog posts</h1>
       <p>...</p>
+      <Link to="/test">Click</Link>
     </>
   );
 }

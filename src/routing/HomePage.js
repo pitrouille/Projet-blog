@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import BlogsList from "../components/BlogsList";
+import "../../src/index.css";
 
 function HomePage() {
   const [posts, setPosts] = useState([]);
@@ -24,8 +25,9 @@ function HomePage() {
 
   return (
     <>
-      <h1>Blog posts</h1>
+      <h1 className="mb-5 title has-text-centered" >Blog posts</h1>
       {isLoading ? <p>Loading</p> : <BlogsList posts={posts} />}
+     
     </>
   );
 }

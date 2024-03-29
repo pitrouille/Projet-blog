@@ -1,33 +1,11 @@
+import Input from "./Input";
+
 export default function EditBlogPost({ onEdit, onInputChange, formData }) {
   return (
     <form onSubmit={onEdit}>
-      <label>
-        UserId:
-        <input
-          type="text"
-          name="userId"
-          value={formData.userId}
-          onChange={onInputChange}
-        />
-      </label>
-      <label>
-        Title:
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          onChange={onInputChange}
-        />
-      </label>
-      <label>
-        Description:
-        <input
-          type="text"
-          name="body"
-          value={formData.body}
-          onChange={onInputChange}
-        />
-      </label>
+      <Input label="UserId : " type="text" name="userId" value={formData.userId} onInputChange={onInputChange}/>
+      <Input label="Titre : " type="text" name="title" value={formData.title} onInputChange={onInputChange}/>
+      <Input label="Description :  : " type="text" name="body" value={formData.body} onInputChange={onInputChange}/>
       <button>Valider</button>
     </form>
   );

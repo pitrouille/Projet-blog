@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import BlogsList from "../components/BlogsList";
 
 function HomePage() {
   const [posts, setPosts] = useState([]);
@@ -13,16 +13,7 @@ function HomePage() {
   return (
     <>
       <h1>Blog posts</h1>
-      <ul>
-        {posts.map((post) => (
-          <Link to={`/${post.id}`} key={post.id}>
-            <li>
-              {post.title} description: {post.body}
-            </li>
-          </Link>
-        ))}
-      </ul>
-      Click
+      <BlogsList posts={posts} />
     </>
   );
 }

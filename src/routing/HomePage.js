@@ -3,17 +3,29 @@ import BlogsList from "../components/BlogsList";
 
 function HomePage() {
   const [posts, setPosts] = useState([]);
-  console.log(posts);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((data) => setPosts(data));
+    const fetchDatas = async () => {
+      try {
+        const response = await fetch(
+          `https://jsonplaceholder.typicode.com/posts/`
+        );
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.log("There was an error", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchDatas();
   }, []);
 
   return (
     <>
       <h1>Blog posts</h1>
-      <BlogsList posts={posts} />
+      {isLoading ? <p>Loading</p> : <BlogsList posts={posts} />}
     </>
   );
 }

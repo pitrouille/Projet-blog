@@ -4,7 +4,7 @@ export default function BlogsList({ posts }) {
   return (
     <ul>
       {posts.map((post) => (
-        <Blog post={post} />
+        <Blog key={post.id} post={post} />
       ))}
     </ul>
   );
